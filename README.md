@@ -36,7 +36,7 @@ File or Folder | Purpose
 `k8s/` | kubernetes deployment files
 `srv/` | your service models and code go here
 `package.json` | project metadata and configuration
-`readme.md` | this getting started guide
+`README.md` | this getting started guide
 
 
 ## Next Steps
@@ -82,21 +82,27 @@ File or Folder | Purpose
    cds watch
    ```
 
-The application loads at `http://localhost:4004`.
+The application loads at `http://localhost:4004`. admin service endpoints use `alice` as default username, not need password.
 
 ### Build the Docker image
 
-1. Build and push the image to your Docker repository:
+1. Build
 
    ```shell
    docker build -t <your-docker-id>/sap-cap-on-kyma-kt-202306 -f docker/Dockerfile .
-   docker push {your-docker-account}/sap-cap-on-kyma-kt-202306
    ```
 
 2. To run the image locally, adjust the value of the **API_URL** parameter in the `webapp/config.js` file and mount it into the image:
 
    ```shell
-   docker run -p 4004:4004 <dockerid>/sap-cap-on-kyma-kt-202306:latest --name sap-cap-on-kyma-kt-202306
+   docker run -p 4004:4004 <your-docker-id>/sap-cap-on-kyma-kt-202306:latest --name sap-cap-on-kyma-kt-202306
+   ```
+
+3. Push the image to your Docker repository:
+
+   ```shell
+   docker login
+   docker push <your-docker-id>/sap-cap-on-kyma-kt-202306
    ```
 
 ### Deploy the application
