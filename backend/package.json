@@ -1,0 +1,26 @@
+{
+  "name": "sap-cap-on-kyma-kt-202306",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "https://github.com/h-best-sap/sap-cap-on-kyma-kt-202306.git",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^6",
+    "express": "^4",
+    "sqlite3": "^5"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "database": "db.sqlite"
+        }
+      }
+    }
+  }
+}
