@@ -4,6 +4,7 @@ FROM node:18.16.0-alpine3.18
 # Create app directory, in which the CAP service is built
 WORKDIR /usr/src/app
 # copy files
+COPY app/ app/
 COPY db/ db/
 COPY srv/ srv/
 COPY package.json db.sqlite .
