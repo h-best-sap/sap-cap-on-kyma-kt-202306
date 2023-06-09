@@ -1,0 +1,23 @@
+apiVersion: gateway.kyma-project.io/v1beta1
+kind: APIRule
+metadata:
+  name: sap-cap-on-kyma-kt-202306
+spec:
+  gateway: kyma-gateway.kyma-system.svc.cluster.local
+  host: sap-cap-on-kyma-kt-202306
+  service:
+    name: sap-cap-on-kyma-kt-202306
+    port: 4004
+  rules:
+  - path: /.*
+    methods:
+    - GET
+    - POST
+    - PUT
+    - PATCH
+    - DELETE
+    - HEAD
+    accessStrategies:
+    - config: {}
+      handler: noop
+

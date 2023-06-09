@@ -89,12 +89,14 @@ The application loads at `http://localhost:4004`. admin service endpoints use `a
 1. Build
 
    ```shell
+   ## docker build -t huahouye/sap-cap-on-kyma-kt-202306 -f docker/Dockerfile .
    docker build -t <your-docker-id>/sap-cap-on-kyma-kt-202306 -f docker/Dockerfile .
    ```
 
-2. To run the image locally, adjust the value of the **API_URL** parameter in the `webapp/config.js` file and mount it into the image:
+2. Run the image locally:
 
    ```shell
+   ## docker run -p 4004:4004 huahouye/sap-cap-on-kyma-kt-202306:latest --name sap-cap-on-kyma-kt-202306
    docker run -p 4004:4004 <your-docker-id>/sap-cap-on-kyma-kt-202306:latest --name sap-cap-on-kyma-kt-202306
    ```
 
@@ -102,6 +104,7 @@ The application loads at `http://localhost:4004`. admin service endpoints use `a
 
    ```shell
    docker login
+   ## docker push huahouye/sap-cap-on-kyma-kt-202306
    docker push <your-docker-id>/sap-cap-on-kyma-kt-202306
    ```
 

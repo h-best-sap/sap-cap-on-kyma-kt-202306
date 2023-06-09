@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sap-cap-on-kyma-kt-202306
+  labels:
+    app: sap-cap-on-kyma-kt-202306
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sap-cap-on-kyma-kt-202306
+  template:
+    metadata:
+      labels: # labels to select/identify the deployment
+        app: sap-cap-on-kyma-kt-202306
+    spec:     # pod spec                  
+      containers: 
+      - image: huahouye/sap-cap-on-kyma-kt-202306:latest # image we pushed
+        name: sap-cap-on-kyma-kt-202306
+        imagePullPolicy: Always
+        ports:
+        - name: http
+          containerPort: 4004
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sap-cap-on-kyma-kt-202306
+  labels:
+    app: sap-cap-on-kyma-kt-202306
+spec:
+  ports:
+  - name: http
+    port: 4004
+    targetPort: 4004
+  selector:
+    app: sap-cap-on-kyma-kt-202306
